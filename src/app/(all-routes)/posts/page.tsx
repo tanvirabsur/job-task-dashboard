@@ -63,7 +63,7 @@ const PostsPage = () => {
             url={`/posts/${post.id}`}
           />
         ))}
-      </motion.div>  {/* ✅ এখন সঠিকভাবে বন্ধ করা হলো */}
+      </motion.div> 
     </div>
   );
 };
