@@ -10,7 +10,7 @@ interface UserType {
 }
 
 interface Props {
-  avatarStyle: React.CSSProperties;
+  avatarStyle: GradientStyle;
   user: UserType;
   initials: string;
 }
