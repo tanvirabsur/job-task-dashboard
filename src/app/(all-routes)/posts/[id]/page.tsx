@@ -3,6 +3,7 @@
 import React from 'react';
 import { useParams } from 'next/navigation';
 import useFetch from '@/hooks/useFetch';
+import Loading from '@/components/Loading';
 
 interface Post {
   id: number;
@@ -17,7 +18,7 @@ const PostPage = () => {
   );
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading/>
   }
 
   if (error) {

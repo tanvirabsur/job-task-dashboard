@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import useFetch from '@/hooks/useFetch';
 import Modal from '@/components/Modal';
+import Loading from '@/components/Loading';
 
 interface User {
   id: number;
@@ -17,7 +18,7 @@ const UsersPage = () => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
 
   if (error) {

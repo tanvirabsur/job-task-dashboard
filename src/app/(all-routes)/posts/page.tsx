@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import useFetch from '@/hooks/useFetch';
 import Card from '@/components/Card';
 import { motion } from 'framer-motion';
+import Loading from '@/components/Loading';
 
 interface Post {
   id: number;
@@ -19,7 +20,7 @@ const PostsPage = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
 
   if (error) {
