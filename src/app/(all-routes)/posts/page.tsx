@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import useFetch from '@/hooks/useFetch';
 import Card from '@/components/Card';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 interface Post {
@@ -28,7 +27,12 @@ const PostsPage = () => {
       <div>
         <h1 className="text-3xl font-bold mb-8 text-red-500">Error</h1>
         <p>{error}</p>
-        <button onClick={() => setUrl('https://jsonplaceholder.typicode.com/posts')} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">Retry</button>
+        <button
+          onClick={() => setUrl('https://jsonplaceholder.typicode.com/posts')}
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md"
+        >
+          Retry
+        </button>
       </div>
     );
   }
@@ -37,8 +41,14 @@ const PostsPage = () => {
     <div>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Posts</h1>
-        <button onClick={simulateError} className="bg-red-500 text-white px-4 py-2 rounded-md">Simulate Error</button>
+        <button
+          onClick={simulateError}
+          className="bg-red-500 text-white px-4 py-2 rounded-md"
+        >
+          Simulate Error
+        </button>
       </div>
+
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         initial={{ opacity: 0 }}
@@ -46,11 +56,14 @@ const PostsPage = () => {
         transition={{ staggerChildren: 0.1 }}
       >
         {posts?.map((post) => (
-          <Link href={`/posts/${post.id}`} key={post.id}>
-            <Card title={post.title} body={post.body} />
-          </Link>
+          <Card
+            key={post.id}
+            title={post.title}
+            body={post.body}
+            url={`/posts/${post.id}`}
+          />
         ))}
-      </motion.div>
+      </motion.div>  {/* ✅ এখন সঠিকভাবে বন্ধ করা হলো */}
     </div>
   );
 };
