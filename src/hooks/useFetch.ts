@@ -15,7 +15,7 @@ const useFetch = <T>(url: string) => {
         const response = await axios.get(url);
         setData(response.data);
       } catch (err) {
-        setError('Failed to fetch data',err);
+         setError('Failed to fetch data: ' + (err as Error).message);
       } finally {
         setLoading(false);
       }
